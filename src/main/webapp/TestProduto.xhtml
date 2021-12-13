@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Produtos</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome: " for="nome" />
+			<h:inputText id="nome" value="#{produtoBean.produto.nome}"
+				required="true" title="nome" />
+
+			<h:outputLabel value="Fabricante: " for="fabricante" />
+			<h:inputText id="fabricante"
+				value="#{produtoBean.produto.fabricante}" required="true"
+				title="fabricante" />
+	
+			<h:outputLabel value="Categoria: " for="categoria" />
+			<h:inputText id="categoria" value="#{produtoBean.produto.categoria}"
+				required="true" title="categoria" />
+
+			<h:outputText />
+			<h:commandButton value="Enviar" action="#{produtoBean.salvar}"
+				required="true" title="enviar" />
+		</h:panelGrid>
+	</h:form>
+
+	<h:form>
+		<h:outputLabel value="Pesquisa por nome: " for="pesquisa" />
+		<h:inputText id="pesquisa" value="#{produtoBean.nomePesquisa}"
+			valueChangeListener="#{produtoBean.fabricantePesquisaAlterada}"
+			onchange="submit()" onfocus="this.value=''" title="pesquisa" />
+	</h:form>
+
+	<h:form>
+		<OL>
+			<ui:repeat var="item" value="#{produtoBean.produtosFiltrados}">
+				<li>#{item.nome} - #{item.fabricante} - #{item.categoria}
+				<h:commandButton value="Excluir" action="#{produtoBean.excluirFiltrados}" title="excluir">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{produtoBean.produtoSelecionado}"  />
+				</h:commandButton>
+				</li>
+			</ui:repeat>
+		</OL>
+	</h:form>
+	
+	<h:form>
+		<h:outputLabel value="Lista com todos os valores" />
+		
+		<OL>
+			<ui:repeat var="item" value="#{produtoBean.produtos}">
+				<li>#{item.nome} - #{item.fabricante} - #{item.categoria}
+				<h:commandButton value="Excluir" action="#{produtoBean.excluirFiltrados}" title="excluir">
+					<f:setPropertyActionListener value="#{item}"
+						target="#{produtoBean.produtoSelecionado}"  />
+				</h:commandButton>
+				</li>
+			</ui:repeat>
+		</OL>
+	</h:form>
+</h:body>
+</html>

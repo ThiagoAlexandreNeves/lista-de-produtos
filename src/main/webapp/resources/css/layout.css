@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+h1{
+	background: url(../imagens/belas.jpg) no-repeat 0px 2px;
+	padding-left: 24px;
+}
+.cabecalho {
+	background-color: black;
+	color: white;
+}
+.grid {
+	border: 1px;
+}
+.cor-sim {
+	background-color: white;
+	color: black;
+}
+.cor-nao {
+	background-color: black;
+	color: white;
+}
+
+td.tipo {
+	width: 5px;
+	text-align: center;
+}
+td.pessoa {
+	width: 30%;
+	text-align: center;
+}
+td.descricao {
+	width: 30%;
+	text-align: center;
+}
+td.valor {
+	width: 10%;
+	text-align: center;
+}
+td.vencimento {
+	width: 10%;
+	text-align: center;
+}
+td.pagamento {
+	width: 10%;
+	text-align: center;
+}
+td.situacao {
+	width: 10%;
+	text-align: center;
+}
+.despesa {
+	color: red;
+}
+.receita {
+	color: green;
+}
